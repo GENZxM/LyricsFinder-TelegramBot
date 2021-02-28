@@ -54,6 +54,17 @@ def send_songname(message):
     print(lyric)
     bot.send_message(message.chat.id,f"All possible matches for {lyric}:-\n\n{titles}")
 
+    
+@bot.inline_handler(lambda inline_query:True)
+def send_song_inline(inline_query):
+    '''Inline search Query for Lyrics'''
+    try:
+        song = genius.search_song(title=inline_query.query)
+        queries = [types.InlineQueryResultArticle('1',song.full_title,types.InputTextMessageContent(song.lyrics))]
+
+        bot.answer_inline_query(inline_query.id,queries)    
+    except:
+        pass
 
 # Setting up Web Hook
 app = Flask(__name__)
