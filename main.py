@@ -18,14 +18,14 @@ bot.remove_webhook()
 def info(message):
     '''Sends Start and Help Message. '''
     text = (
-    "<b>Welcome to the Lyrics Finder!</b>\n"
+    "<b>Welcome to the Lyrics Finder! This bot is manage by @XFlick</b>\n"
     "Use /lyrics {your song} to get song's lyrics\n"
     "Use /lyricsearch {your lyrics} to get song's name.\n"
     "eg :- /lyrics Nobody's love\n"
     "/lyricsearch I still see your shadows in my room\n"
     )
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton("Maintained By",url="t.me/error404_inline1"))
+    markup.add(types.InlineKeyboardButton("Maintained By",url="htpps://telegram.me/XFlick"))
     bot.send_message(message.chat.id, text, parse_mode='HTML', reply_markup=markup, disable_web_page_preview=True)
 
 @bot.message_handler(commands=['lyrics'])
